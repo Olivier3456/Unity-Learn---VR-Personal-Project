@@ -14,7 +14,7 @@ public class DropHandle : MonoBehaviour
     private Transform handGrabbing;
 
 
-    // Don't forget to call this method in the Select Exited event of the XR Grab Interactable component of the door!!!!
+    // Don't forget to call this method in the Select Entered event of the XR Grab Interactable component of the door!!!!
     public void Grabbed(SelectEnterEventArgs interactor)
     {
         handGrabbing = interactor.interactorObject.transform;
