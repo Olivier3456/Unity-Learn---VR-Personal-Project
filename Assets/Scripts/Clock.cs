@@ -8,10 +8,15 @@ public class Clock : MonoBehaviour
     [SerializeField] private Transform hoursHand;
     [SerializeField] private Transform minutesHand;
     [SerializeField] private Transform secondsHand;
+    [Space(10)]
+    [SerializeField] private AudioSource audioSource;
+
 
     private int hour;
     private int minute;
     private int second;
+
+    private int lastSecond;
 
    
     void Update()
@@ -19,6 +24,13 @@ public class Clock : MonoBehaviour
         hour = DateTime.Now.Hour;
         minute = DateTime.Now.Minute;
         second = DateTime.Now.Second;
+
+        if (second != lastSecond)
+        {
+            audioSource?.Play();
+            lastSecond = second;
+        }
+
 
         Quaternion rotation = Quaternion.identity;
 
